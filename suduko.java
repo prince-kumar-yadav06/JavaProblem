@@ -2,7 +2,7 @@ public class suduko{
     public static boolean issafe(int arr[][],int row,int col,int digit){
         // check for row 
         for(int i=0;i<9;i++){
-            if(arr[i][col]==digit){          //row change col same//
+            if(arr[i][col]==digit){      //row change col same//
                 return false;
             }
         }
