@@ -1,5 +1,5 @@
 # javaproblem
-#store Queen at index such each queen should not croos eachother 
+#store Queen at index such each queen should not croos eachother
 
 
 approach...
