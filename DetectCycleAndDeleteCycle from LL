@@ -1,0 +1,63 @@
+public class ll {
+     static Node head;
+    static class Node{
+        int data;
+        Node next;
+        Node(int data){
+            data=data;
+            next=null;
+        }
+    }
+    public static boolean iscycle(Node node){
+        Node slow=node,fast=node;
+        while(slow!=null && fast !=null && fast.next!=null){
+            slow=slow.next;
+            fast=fast.next.next;
+            if(slow==fast){
+                slow.next=null;
+                return true;
+            }
+        }
+        return false;
+    }
+    public static void DeleteCycle(){
+        // detect cycle
+        Node slow=head,fast=head;
+        boolean cycleExist=false;
+        while( fast !=null && fast.next!=null){
+            slow=slow.next;
+            fast=fast.next.next;
+            if(slow==fast){
+                cycleExist=true;
+                break;
+            }
+        }
+        if(cycleExist==false){
+            return;
+        }
+        // find meet of slow and fast
+        slow=head;
+        Node prev=null;
+        while(slow!=fast){
+            prev=fast;
+            slow=slow.next;
+            fast=fast.next;
+        }
+        // delete cycle
+        prev.next=null;
+
+    }
+  
+    public static void main(String args[]){
+        head=new Node(1);
+        head.next=new Node(2);
+        head.next.next=new Node(3);
+        head.next.next.next=new Node(4);
+        head.next.next.next.next=head;
+
+        System.out.println(iscycle(head));
+        DeleteCycle();
+        System.out.println(iscycle(head));
+
+    }
+}
