@@ -1,0 +1,57 @@
+import java.util.*;
+public class Reverse{
+static Node head;
+ class Node{
+    int data;
+    Node next;
+
+    Node(int data){
+        this.data=data;
+        this.next=null;
+
+    }
+}
+public void add(int data){
+    Node curr=new Node(data);
+    if(head==null){
+        head=curr;
+        return;
+    }
+    curr.next=head;
+    head=curr;
+}
+public void print(Node head){
+
+    while(head!=null){
+        System.out.print(head.data+"-->");
+        head=head.next;
+    }
+    System.out.println("null");
+
+}
+    public void reverse(){
+        Node prev=null;
+        Node curr=head;
+        while(curr!=null){
+            Node next=curr.next;
+            curr.next=prev;
+            prev=curr;
+            curr=next;
+
+        }
+        head=prev;
+    }
+   
+  
+    public static void main(String args[]){
+       Reverse ll=new Reverse();
+       ll.add(1);
+       ll.add(2);
+       ll.add(3);
+       ll.add(4);
+       ll.print(head);
+       ll.reverse();
+       ll.print(head);
+
+    }
+}
