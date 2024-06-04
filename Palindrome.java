@@ -1,7 +1,6 @@
 import java.util.*;
 public class Palindrome {
     
-
 static Node head;
  class Node{
     int data;
