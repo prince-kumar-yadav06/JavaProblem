@@ -13,8 +13,13 @@ public class DeleteNode{
         if(tobeDel==null){
             return ;
         }
+        if( tobeDel.next!=null){
         tobeDel.data=tobeDel.next.data;
         tobeDel.next=tobeDel.next.next;
+        }
+        else{
+            System.out.println("last Node is null please give one node");
+        }
     }
     
     public static void print(Node head){
